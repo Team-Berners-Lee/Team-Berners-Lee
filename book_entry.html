@@ -5,8 +5,10 @@
     <title></title>
 </head>
 <body>
-<form id="Main">
-    <div id="links">
+<h1>Buch anlegen</h1>
+
+<form id="Main" action="http://martinakraus.net/createBookEntry.php" method="GET">
+    <div id="booktoken">
         <label for="Buchtitel">Buchtitel</label>
         <input type="text" name="Buchtitel" id="Buchtitel"><br>
 
@@ -26,7 +28,14 @@
         <input type="text" name="Auflage" id="Auflage"><br>
 
         <label for="ArtDesBuches">Art des Buches</label>
-        <input type="text" name="ArtDesBuches" id="ArtDesBuches"><br>
+        <select name="ArtDesBuches" size="1" id="ArtDesBuches">
+            <option value="ebook">eBook</option>
+            <option value="newspaper">Newspaper</option>
+            <option value="taschenbuch">Taschenbuch</option>
+            <option value="lexikon">Lexikon</option>
+            <option value="hardcover" selected="selected">Hardcover</option>
+            <option value="paperback">Paperback</option>
+        </select><br>
 
         <label for="Genre">Genre
         <input type="checkbox" name="Genre" id="Genre1" value="Horror" checked="checked">Horror<br>
@@ -37,7 +46,7 @@
         <input type="checkbox" name="Genre" value="Romanze">Romanze</label><br>
     </div>
 
-    <div id="rechts">
+    <div id="nametoken">
         <label for="DeinVorname">Dein Vorname</label>
         <input type="text" name="DeinVorname" id="DeinVorname"><br>
 
@@ -46,6 +55,10 @@
 
         <label for="MeinFavorit">Mein Favorit</label>
         <input type="checkbox" name="MeinFavorit" id="MeinFavorit" value="MeinFavorit"><br>
+    </div>
+
+    <div id="submitbutton">
+        <input type="submit" name="Absenden" value="Absenden">
     </div>
 </form>
 </body>

@@ -1,9 +1,36 @@
 h1 {
     color: blue;
-    font-weight: bold;
+    font-weight: bolder;
+    margin-left: 40%;
+    margin-bottom: 15%;
 }
 
 body {
     background-color: lightblue;
     font-family: Arial, serif;
+    color: blue;
+}
+
+#booktoken {
+    float: left;
+    font-weight: bolder;
+}
+
+#nametoken {
+    float: left;
+    font-weight: bold;
+}
+
+#submitbutton input {
+    color: blue;
+    font-weight: bold;
+    background-color: deepskyblue;
+    border-color: blue;
+    padding: 3px 75px;
+}
+
+label{
+    float: left;
+    width: 160px;
+    display: block;
 }

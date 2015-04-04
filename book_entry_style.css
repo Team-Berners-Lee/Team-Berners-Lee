@@ -1,12 +1,13 @@
 h1 {
-    color: blue;
+    color: rgb(63,72,204);
     font-weight: bolder;
+    font-size: 22px;
     margin-left: 40%;
-    margin-bottom: 5%;
+    margin-bottom:5%;
 }
 
 body {
-    background-color: lightblue;
+    background-color: rgb(153,217,234);
     font-family: Arial, serif;
     color: blue;
 }
@@ -17,7 +18,7 @@ body {
 }
 
 #nametoken {
-    float: left;
+    float: right;
     font-weight: bold;
 }
 

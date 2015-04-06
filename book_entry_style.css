@@ -6,10 +6,15 @@ h1 {
     margin-bottom:5%;
 }
 
+#Main {
+    margin-left: 10%;
+    margin-right:20%;
+}
+
 body {
     background-color: rgb(153,217,234);
     font-family: Arial, serif;
-    color: blue;
+    color: rgb(63,72,204);
 }
 
 #booktoken {
@@ -22,7 +27,13 @@ body {
     font-weight: bold;
 }
 
-#submitbutton input {
+#submitbutton {
+    position: absolute;
+    bottom:0;
+    padding: 90% 20% 10% 27%; /* Innenabstand oben - rechts - unten - links  */
+}
+
+#submitbutton input{
     color: blue;
     font-weight: bold;
     background-color: deepskyblue;
@@ -34,4 +45,12 @@ label{
     float: left;
     width: 160px;
     display: block;
+    font-size: 16px;
+}
+
+span {
+    float: left;
+    font-weight: bold;
+    color: rgb(0,0,0);
+    font-size: 14px;
 }

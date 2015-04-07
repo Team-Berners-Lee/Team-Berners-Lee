@@ -41,6 +41,16 @@ body {
     padding: 3px 75px;
 }
 
+#genre-title {
+    float: left;
+}
+
+#genre-checkboxes {
+    float: right;
+
+}
+
+
 label{
     float: left;
     width: 160px;

@@ -1,22 +1,22 @@
 /* General Design */
 
 h1 {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     font-weight: bolder;
     font-size: 22px;
     margin-left: 40%;
-    margin-bottom:5%;
+    margin-bottom: 5%;
 }
 
 body {
-    background-color: rgb(153,217,234);
+    background-color: rgb(153, 217, 234);
     font-family: Arial, serif;
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
 }
 
 #Main {
     margin-left: 10%;
-    margin-right:20%;
+    margin-right: 20%;
 }
 
 /* Book_Entry.html Design */
@@ -31,13 +31,12 @@ body {
     font-weight: bold;
 }
 
-
 #submitbutton {
     bottom: 0;
     padding: 50% 20% 10% 40%; /* Innenabstand oben - rechts - unten - links */
 }
 
-#submitbutton input{
+#submitbutton input {
     color: blue;
     font-weight: bold;
     background-color: deepskyblue;
@@ -58,7 +57,7 @@ body {
     white-space: nowrap;
 }
 
-.book_entry_label{
+.book_entry_label {
     float: left;
     width: 160px;
     display: block;
@@ -68,11 +67,32 @@ body {
 .book_entry_span {
     float: left;
     font-weight: bold;
-    color: rgb(0,0,0);
+    color: rgb(0, 0, 0);
     font-size: 14px;
 }
 
 /* Home.html Design */
+
+#mainframe {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#buttonframe {
+    text-align: center;
+    width: fit-content;
+}
+
+.linkbutton {
+    border-width: 5px;
+    border-style: solid;
+    border-color: blue;
+    padding: 2.5em;
+
+    font-size: 18px;
+    font-weight: bold;
+}
 
 #home_h1 {
     font-size: 22px;
@@ -97,8 +117,3 @@ body {
     color: blue;
 }
 
-#linkbuttons {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-}

@@ -1,3 +1,5 @@
+/* General Design */
+
 h1 {
     color: rgb(63,72,204);
     font-weight: bolder;
@@ -6,16 +8,18 @@ h1 {
     margin-bottom:5%;
 }
 
- #Main {
-    margin-left: 10%;
-    margin-right:20%;
-}
-
 body {
     background-color: rgb(153,217,234);
     font-family: Arial, serif;
     color: rgb(63,72,204);
 }
+
+#Main {
+    margin-left: 10%;
+    margin-right:20%;
+}
+
+/* Book_Entry.html Design */
 
 #booktoken {
     float: left;
@@ -43,24 +47,58 @@ body {
 
 #genre-title {
     float: left;
+    clear: both;
+    margin-right: 20%;
 }
 
 #genre-checkboxes {
     float: right;
-
+    display: block;
+    padding-right: 10px;
+    white-space: nowrap;
 }
 
-
-label{
+.book_entry_label{
     float: left;
     width: 160px;
     display: block;
     font-size: 16px;
 }
 
-span {
+.book_entry_span {
     float: left;
     font-weight: bold;
     color: rgb(0,0,0);
     font-size: 14px;
+}
+
+/* Home.html Design */
+
+#home_h1 {
+    font-size: 22px;
+    color: black;
+}
+
+#home_h2 {
+    font-size: 72px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    vertical-align: 50%;
+}
+
+#home_img {
+    vertical-align: baseline;
+    float: none;
+    clear: both;
+}
+
+.blue {
+    color: blue;
+}
+
+#linkbuttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }

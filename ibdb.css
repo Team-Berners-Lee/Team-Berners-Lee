@@ -51,10 +51,15 @@ body {
 }
 
 #genre-checkboxes {
-    float: right;
+    width: 500px;
     display: block;
     padding-right: 10px;
-    white-space: nowrap;
+    float: right;
+}
+
+.checkbox {
+    font-size: 14px;
+    color: black;
 }
 
 .book_entry_label {
@@ -73,8 +78,6 @@ body {
 
 input:required:invalid, input:focus:invalid {
     -moz-box-shadow: none;
-    border-style: dashed;
-    border-color: red;
 }
 
 input:required:valid {

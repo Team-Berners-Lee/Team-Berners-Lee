@@ -97,7 +97,7 @@ input:required:valid {
     text-align: center;
     -webkit-align-content: center;
     align-content: center;
-    width: fit-content;
+    width: 95%;
 }
 
 .homebutton {
@@ -164,6 +164,7 @@ input:required:valid {
 #home_h1 {
     font-size: 22px;
     color: black;
+    align-content: center;
 }
 
 #home_h2 {

@@ -21,6 +21,14 @@ body {
 
 /* Book_Entry.html Design */
 
+input {
+    width: 160px;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+}
+
 #booktoken {
     float: left;
     font-weight: bolder;
@@ -47,13 +55,17 @@ body {
 #genre-title {
     float: left;
     clear: both;
-    margin-right: 20%;
+    display: block;
 }
 
 #genre-checkboxes {
-    width: 500px;
-    display: block;
-    padding-right: 10px;
+    width: fit-content;
+    float: right;
+    margin-left: 60px;
+}
+
+#genre-checkboxes-2ndRow {
+    width: fit-content;
     float: right;
 }
 

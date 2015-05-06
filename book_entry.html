@@ -17,31 +17,25 @@
             var validEntries = true;
             var focusSet = false;
 
-            if(validEntried == false) validEntries = true;
-
             // Check if Buchtitel is not Empty
             if( document.Form.Buchtitel.value == "" ){
                 if(!focusSet) document.Form.Buchtitel.focus();
                 validEntries = false;
-                alert("buchtitel empty");
             }
             // Check if Buchauthor only contain letters
-            if( nurBuchstaben(document.Form.Buchautor.value == false ) ){
+            if( nurBuchstaben(document.Form.Buchautor.value ) == false ){
                 if(!focusSet) document.Form.Buchautor.focus();
                 validEntries = false;
-                alert("Buchautor false");
             }
             // Check if DeinNachname only contain letters
-            if( nurBuchstaben(document.Form.DeinNachname.value == false ) ){
+            if( nurBuchstaben(document.Form.DeinNachname.value )  == false ){
                 if(!focusSet ) document.Form.DeinNachname.focus();
                 validEntries = false;
-                alert("deiinnachname false");
             }
             // Check if DeinVorname only contain letters
-            if( nurBuchstaben(document.Form.DeinVorname.value == false ) ){
+            if( nurBuchstaben(document.Form.DeinVorname.value) == false ){
                 if(!focusSet) document.Form.DeinVorname.focus();
                 validEntries = false;
-                alert("dein vorname false");
             }
             /* Check if Erscheinungsjahr only contains numbers, is not empty and
             is not larger than the current year */
@@ -50,16 +44,14 @@
                     document.Form.Erscheinungsjahr.value < 0){
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
-            }else if( nurZahlen == false){
+            }else if( nurZahlen(document.Form.Erscheinungsjahr.value) == false){
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
-                alert("jahr false");
             }
             // Check if Auflage contains only numbers
             if( nurZahlen(document.Form.Auflage.value) == false ){
                 if(!focusSet) document.Form.Auflage.focus();
                 validEntries = false;
-                alert("auflage false");
             }
 
 
@@ -77,6 +69,7 @@
         // Check if given value contains only letters, else returns false
         function nurBuchstaben(value){
             if(value.length < 0 ){
+                alert("nurbuchstaben < 0");
                 return false;
             }else if(value.length > 0){
                     var val = value;
@@ -84,7 +77,6 @@
                         if(val.charAt(i) < "A"  ||
                                 val.charAt(i) > "Z" && val.charAt(i) < "a" ||
                                 val.charAt(i) > "z"){
-                            alert("nur Buchstaben ist false");
                             return false;
                         }
                     }
@@ -100,7 +92,6 @@
                 var val = value;
                 for (i = 0; i < val.length; i++) {
                     if (val.charAt(i) < "0" || val.charAt(i) > "9") {
-                        alert("nur zahlen ist false");
                         return false;
                     }
                 }
@@ -126,22 +117,22 @@
 
         <p>
             <label class="book_entry_label" for="ISBN">ISBN</label>
-            <input type="number" name="ISBN" id="ISBN" required><br>
+            <input type="text" name="ISBN" id="ISBN" required><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Kapitel">Kapitel</label>
-            <input type="number" min="0" max="9999" name="Kapitel" id="Kapitel" required><br>
+            <input type="text" name="Kapitel" id="Kapitel" required><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Erscheinungsjahr">Erscheinungsjahr</label>
-            <input type="number" min="0" max="9999" name="Erscheinungsjahr" id="Erscheinungsjahr" required><br>
+            <input type="text" name="Erscheinungsjahr" id="Erscheinungsjahr" required><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Auflage">Auflage</label>
-            <input type="number" min="1" max="9999" name="Auflage" id="Auflage" required><br>
+            <input type="text" name="Auflage" id="Auflage" required><br>
         </p>
 
         <p>

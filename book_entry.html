@@ -19,39 +19,68 @@
 
             // Check if Buchtitel is not Empty
             if( document.Form.Buchtitel.value == "" ){
+                document.getElementById('Buchtitel').style.borderColor = "red";
                 if(!focusSet) document.Form.Buchtitel.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('Buchtitel').style.borderColor = "transparent";
             }
             // Check if Buchauthor only contain letters
             if( nurBuchstaben(document.Form.Buchautor.value ) == false ){
+                document.getElementById('Buchautor').style.borderColor = "red";
                 if(!focusSet) document.Form.Buchautor.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('Buchautor').style.borderColor = "transparent";
             }
             // Check if DeinNachname only contain letters
             if( nurBuchstaben(document.Form.DeinNachname.value )  == false ){
+                document.getElementById('DeinNachname').style.borderColor = "red";
                 if(!focusSet ) document.Form.DeinNachname.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('DeinNachname').style.borderColor = "transparent";
             }
             // Check if DeinVorname only contain letters
             if( nurBuchstaben(document.Form.DeinVorname.value) == false ){
+                document.getElementById('DeinVorname').style.borderColor = "red";
                 if(!focusSet) document.Form.DeinVorname.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('DeinVorname').style.borderColor = "transparent";
             }
             /* Check if Erscheinungsjahr only contains numbers, is not empty and
             is not larger than the current year */
             if(document.Form.Erscheinungsjahr.value > currentYear ||
                     document.Form.Erscheinungsjahr.length > 4 ||
                     document.Form.Erscheinungsjahr.value < 0){
+                document.getElementById('Erscheinungsjahr').style.borderColor = "red";
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
             }else if( nurZahlen(document.Form.Erscheinungsjahr.value) == false){
+                document.getElementById('Erscheinungsjahr').style.borderColor = "red";
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('Erscheinungsjahr').style.borderColor = "transparent";
             }
             // Check if Auflage contains only numbers
             if( nurZahlen(document.Form.Auflage.value) == false ){
+                document.getElementById('Auflage').style.borderColor = "red";
                 if(!focusSet) document.Form.Auflage.focus();
                 validEntries = false;
+            }else{
+                document.getElementById('Auflage').style.borderColor = "transparent";
+            }
+            // Check if ISBN contains exactly 13 numbers
+            if( document.Form.ISBN.value.length > 13 ||
+                    document.Form.ISBN.value.length < 13 ||
+                    nurZahlen(document.Form.ISBN.value) == false ){
+                document.getElementById('ISBN').style.borderColor = "red";
+                if(!focusSet) document.Form.ISBN.focus();
+                validEntries = false;
+            }else{
+                document.getElementById('ISBN').style.borderColor = "transparent";
             }
 
 
@@ -64,7 +93,6 @@
                 return true;
             }
         }
-
 
         // Check if given value contains only letters, else returns false
         function nurBuchstaben(value){
@@ -107,32 +135,32 @@
     <div id="booktoken">
         <p>
             <label class="book_entry_label" for="Buchtitel">Buchtitel</label>
-            <input type="text" name="Buchtitel" id="Buchtitel" required><br>
+            <input type="text" name="Buchtitel" id="Buchtitel"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Buchautor">Buchautor</label>
-            <input type="text" name="Buchautor" id="Buchautor" required><br>
+            <input type="text" name="Buchautor" id="Buchautor"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="ISBN">ISBN</label>
-            <input type="text" name="ISBN" id="ISBN" required><br>
+            <input type="text" name="ISBN" id="ISBN"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Kapitel">Kapitel</label>
-            <input type="text" name="Kapitel" id="Kapitel" required><br>
+            <input type="text" name="Kapitel" id="Kapitel"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Erscheinungsjahr">Erscheinungsjahr</label>
-            <input type="text" name="Erscheinungsjahr" id="Erscheinungsjahr" required><br>
+            <input type="text" name="Erscheinungsjahr" id="Erscheinungsjahr"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="Auflage">Auflage</label>
-            <input type="text" name="Auflage" id="Auflage" required><br>
+            <input type="text" name="Auflage" id="Auflage"><br>
         </p>
 
         <p>
@@ -167,12 +195,12 @@
     <div id="nametoken">
         <p>
             <label class="book_entry_label" for="DeinVorname">Dein Vorname</label>
-            <input type="text" name="DeinVorname" id="DeinVorname" required><br>
+            <input type="text" name="DeinVorname" id="DeinVorname"><br>
         </p>
 
         <p>
             <label class="book_entry_label" for="DeinNachname">Dein Nachname</label>
-            <input type="text" name="DeinNachname" id="DeinNachname" required><br>
+            <input type="text" name="DeinNachname" id="DeinNachname"><br>
         </p>
 
         <p>

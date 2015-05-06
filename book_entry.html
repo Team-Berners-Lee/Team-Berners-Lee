@@ -17,41 +17,49 @@
             var validEntries = true;
             var focusSet = false;
 
+            if(validEntried == false) validEntries = true;
+
             // Check if Buchtitel is not Empty
             if( document.Form.Buchtitel.value == "" ){
                 if(!focusSet) document.Form.Buchtitel.focus();
                 validEntries = false;
+                alert("buchtitel empty");
             }
             // Check if Buchauthor only contain letters
             if( nurBuchstaben(document.Form.Buchautor.value == false ) ){
                 if(!focusSet) document.Form.Buchautor.focus();
                 validEntries = false;
+                alert("Buchautor false");
             }
             // Check if DeinNachname only contain letters
             if( nurBuchstaben(document.Form.DeinNachname.value == false ) ){
                 if(!focusSet ) document.Form.DeinNachname.focus();
                 validEntries = false;
+                alert("deiinnachname false");
             }
             // Check if DeinVorname only contain letters
             if( nurBuchstaben(document.Form.DeinVorname.value == false ) ){
                 if(!focusSet) document.Form.DeinVorname.focus();
                 validEntries = false;
+                alert("dein vorname false");
             }
             /* Check if Erscheinungsjahr only contains numbers, is not empty and
             is not larger than the current year */
-            if(document.Form.Erscheinungsjahr > currentYear ||
+            if(document.Form.Erscheinungsjahr.value > currentYear ||
                     document.Form.Erscheinungsjahr.length > 4 ||
-                    document.Form.Erscheinungsjahr < 0){
+                    document.Form.Erscheinungsjahr.value < 0){
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
             }else if( nurZahlen == false){
                 if(!focusSet) document.Form.Erscheinungsjahr.focus();
                 validEntries = false;
+                alert("jahr false");
             }
             // Check if Auflage contains only numbers
             if( nurZahlen(document.Form.Auflage.value) == false ){
                 if(!focusSet) document.Form.Auflage.focus();
                 validEntries = false;
+                alert("auflage false");
             }
 
 
@@ -59,9 +67,9 @@
             // final check what to return and if to throw error popup
             if(validEntries == false){
                 entryWarn();
-                return true;
-            }else{
                 return false;
+            }else{
+                return true;
             }
         }
 
@@ -73,7 +81,10 @@
             }else if(value.length > 0){
                     var val = value;
                     for(i=0; i < val.length; i++){
-                        if(val.charAt(i) < "A" || val.charAt(i) > "Z" || val.charAt(i) < "a" || val.charAt(i) > "z"){
+                        if(val.charAt(i) < "A"  ||
+                                val.charAt(i) > "Z" && val.charAt(i) < "a" ||
+                                val.charAt(i) > "z"){
+                            alert("nur Buchstaben ist false");
                             return false;
                         }
                     }
@@ -89,6 +100,7 @@
                 var val = value;
                 for (i = 0; i < val.length; i++) {
                     if (val.charAt(i) < "0" || val.charAt(i) > "9") {
+                        alert("nur zahlen ist false");
                         return false;
                     }
                 }
@@ -100,7 +112,7 @@
 <body>
 <h1>Buch anlegen</h1>
 
-<form name="Form" id="Main" action="http://martinakraus.net/createBookEntry.php" method="GET">
+<form name="Form" id="Main" action="http://martinakraus.net/createBookEntry.php" method="post" onsubmit="return validateForm()">
     <div id="booktoken">
         <p>
             <label class="book_entry_label" for="Buchtitel">Buchtitel</label>
@@ -177,7 +189,7 @@
             <input type="checkbox" name="MeinFavorit" id="MeinFavorit" value="MeinFavorit"><br>
         </p>
     </div>
-    <footer id="submitbutton"><input type="submit"  onsubmit="return validateForm()" name="Absenden" value="Absenden"></footer>
+    <footer id="submitbutton"><input type="submit"  name="Absenden" value="Absenden"></footer>
 </form>
 </body>
 </html>

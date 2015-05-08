@@ -1,7 +1,7 @@
 //read JSON data: http://www.w3schools.com/json/json_example.asp 
 
 {
-  "romandata": [
+  "data": [
     {
       "autor": "Paulo Coelho",
       "titel": "Der Alchimist",

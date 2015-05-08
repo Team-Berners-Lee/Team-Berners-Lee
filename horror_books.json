@@ -1,7 +1,7 @@
 ////read JSON data: http://www.w3schools.com/json/json_example.asp 
-
 {
-  "horrordata": [
+  "horror":
+  [
     {
       "autor": "Stephen King",
       "titel": "The Stand - Das letzte Gefecht",
@@ -10,7 +10,8 @@
       "ISBN": 9783404134113,
       "erscheinungsjahr": 1992,
       "auflage": 3
-    },
+    }
+  ,
     {
       "autor": "Clive Barker",
       "titel": "Imagica ",
@@ -19,7 +20,8 @@
       "ISBN": 9783453082069,
       "erscheinungsjahr": 1994,
       "auflage": 1
-    },
+    }
+  ,
     {
       "autor": "Clive Barker",
       "titel": "Gyre",
@@ -28,7 +30,8 @@
       "ISBN": 9783453071698,
       "erscheinungsjahr": 1994,
       "auflage": 1
-    },
+    }
+  ,
     {
       "autor": "Nancy A. Collins",
       "titel": "Wildes Blut",
@@ -37,7 +40,8 @@
       "ISBN": 9783442081172,
       "erscheinungsjahr": 1994,
       "auflage": 1
-    },
+    }
+  ,
     {
       "autor": "Dean R. Koontz",
       "titel": "Mitternacht",
@@ -46,7 +50,8 @@
       "ISBN": 9783453056602,
       "erscheinungsjahr": 2002,
       "auflage": 1
-    },
+    }
+  ,
     {
       "autor": "Stephen King",
       "titel": "Schwarz",
@@ -55,7 +60,8 @@
       "ISBN": 9783453123847,
       "erscheinungsjahr": 2000,
       "auflage": 1
-    },
+    }
+  ,
     {
       "autor": "Peter F. Hamilton",
       "titel": "Hannibal",

@@ -4,6 +4,98 @@
     <meta charset="UTF-8">
     <title>Meine Bücher</title>
     <link rel="stylesheet" type="text/css" href="ibdb.css">
+
+    <script>
+
+        function loadJSON(callback) {
+
+            var xobj;
+            xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', 'horror_books.json', true); // Replace 'my_data' with the path to your file
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                    callback(xobj.responseText);
+                }
+            };
+            xobj.send(null);
+        }
+
+        function init() {
+            loadJSON(function (response) {
+                // Parse JSON string into object
+                var horror = JSON.parse(response);
+
+                var out = "<table>";
+
+                //Create a HTML Table element.
+                var table = document.createElement("TABLE");
+
+                //Get the count of columns.
+                var columnCount = horror[0].length;
+
+                //Add the header row.
+                var row = table.insertRow(-1);
+                for (var i = 1; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = horror[0][i];
+                    row.appendChild(headerCell);
+                }
+
+                //Add the data rows.
+                for (var ind = 0; ind < horror.length; i++) {
+                    row = table.insertRow(-1);
+                    for (var j = 0; j < columnCount; j++) {
+                        var cell = row.insertCell(-1);
+                        cell.innerHTML = horror[ind][j];
+                    }
+                }
+
+                var dvTable = document.getElementById("dvTable");
+                dvTable.innerHTML = "";
+                dvTable.appendChild(table);
+                out += "</table>";
+                document.getElementById("id01").innerHTML = out;
+            });
+        }
+        /* old try to implement json files
+
+
+         var xmlhttp = new XMLHttpRequest();
+         var url = "http://www.w3schools.com/website/customers_mysql.php";
+
+         xmlhttp.onreadystatechange=function() {
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+         myFunction(xmlhttp.responseText);
+         }
+         };
+         xmlhttp.open("GET", url, true);
+         xmlhttp.send();
+
+
+
+         function myFunction(response) {
+         var arr = JSON.parse(response);
+         var i;
+         var out = "<table>";
+
+         for(i = 0; i < arr.length; i++) {
+         out += "<tr><td>" +
+         arr[i].Name +
+         "</td><td>" +
+         arr[i].City +
+         "</td><td>" +
+         arr[i].Country +
+         "</td></tr>";
+         }
+         out += "</table>";
+         document.getElementById("id01").innerHTML = out;
+         }
+
+         */
+
+    </script>
 </head>
 <body>
 <h1>Meine Bücher</h1>
@@ -16,37 +108,6 @@
 
 </div>
 <div id="id01"></div>
-<script>
-    var xmlhttp = new XMLHttpRequest();
-    var url = "http://www.w3schools.com/website/customers_mysql.php";
 
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            myFunction(xmlhttp.responseText);
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-
-    function myFunction(response) {
-        var arr = JSON.parse(response);
-        var i;
-        var out = "<table>";
-
-        for(i = 0; i < arr.length; i++) {
-            out += "<tr><td>" +
-            arr[i].Name +
-            "</td><td>" +
-            arr[i].City +
-            "</td><td>" +
-            arr[i].Country +
-            "</td></tr>";
-        }
-        out += "</table>";
-        document.getElementById("id01").innerHTML = out;
-    }
-
-
-</script>
 </body>
 </html>

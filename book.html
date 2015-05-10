@@ -9,8 +9,8 @@
 <h1>Meine Bücher</h1>
 
 <div id="switch">
-    <input type="button" value="Horror" class="BookButton" onclick="changeToHorror()">
-    <input type="button" value="Roman" class="BookButton" onclick="changeToRoman()">
+    <input type="button" id="horrorButton" value="Horror" class="BookButton" onclick="changeToHorror()">
+    <input type="button" id="romanButton" value="Roman" class="BookButton" onclick="changeToRoman()">
 
 </div>
 <div id="id01"></div>
@@ -18,6 +18,7 @@
 <p></p>
 <script>
     horrorTable();
+    document.getElementById("horrorButton").focus();
 
 
     function seiteErstellen() {
@@ -29,12 +30,16 @@
     function changeToRoman() {
         romanTable();
         document.getElementById('id01').style.display = "block"; // show roman div tag
+        document.getElementById("romanButton").className = "BookButton";
+        document.getElementById("horrorButton").className = "BookButton";
 
     }
 
     function changeToHorror() {
         horrorTable();
         document.getElementById('id02').style.display = "block"; // show horror div tag
+        document.getElementById("horrorButton").className = "BookButton";
+        document.getElementById("romanButton").className = "BookButton";
     }
 
     function romanTable(){

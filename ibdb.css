@@ -207,15 +207,14 @@ input:required:valid {
 }
 
 .BookButton {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    width: 200px;
+    width: 500px;
     border-style: solid;
     border-color: rgb(63, 72, 204);
     border-width: 3px;
 
-    display: inline-block;
-    padding: 1em;
+    display: inline-block;;
     background-color: rgb(0, 162, 232);
     color: black;
 }

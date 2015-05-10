@@ -197,6 +197,9 @@ input:required:valid {
     color: blue;
 }
 
+#bookh1 {
+    display: inline-block;
+}
 
 #id01 {
     text-align: center;
@@ -235,13 +238,18 @@ input:required:valid {
     color: black;
 }
 
+/* book.html javascript generated table */
 .generatedTable {
-    border-color: rgb(63, 72, 204);
-    border: 3px solid;
     display: inline-block
 }
 
-.generatedThead {
-    font-weight: bold;
+.generatedTable tbody th {
     color: black;
+    border: 3px solid;
+    border-color: rgb(63, 72, 204);
+}
+
+.generatedTable td {
+    border: 3px solid;
+    border-color: rgb(63, 72, 204);
 }

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="ibdb.css">
 </head>
 <body>
-<h1>Meine Bücher</h1>
+<h1 id="bookh1">Meine Bücher</h1>
 
 <div id="switch">
     <input type="button" id="horrorButton" value="Horror" class="BookButton" onclick="changeToHorror()">
@@ -125,21 +125,21 @@
         var i;
         var out = "<table class='generatedTable'>";
 
-        out += "<th class='generatedThead'><tr><td>" +
+        out += "<tr><th>" +
         "Autor" +
-        "</td><td>" +
+        "</th><th>" +
         "Titel" +
-        "</td><td>" +
+        "</th><th>" +
         "Kapitel" +
-        "</td><td>" +
+        "</th><th>" +
         "Buchart" +
-        "</td><td>" +
+        "</th><th>" +
         "ISBN" +
-        "</td><td>" +
+        "</th><th>" +
         "Erscheinungsjahr" +
-        "</td><td>" +
+        "</th><th>" +
         "Auflage" +
-        "</td></tr></th>";
+        "</th></tr>";
 
         for (i = 0; i < arr.length; i++) {
             out += "<tr><td>" +

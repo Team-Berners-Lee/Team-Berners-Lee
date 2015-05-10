@@ -4,136 +4,97 @@
     <meta charset="UTF-8">
     <title>Meine Bücher</title>
     <link rel="stylesheet" type="text/css" href="ibdb.css">
-
-    <script>
-
-        function loadJSON(callback) {
-
-            var xobj;
-            xobj = new XMLHttpRequest();
-            xobj.overrideMimeType("application/json");
-            xobj.open('GET', 'horror_books.json', true); // Replace 'my_data' with the path to your file
-            xobj.onreadystatechange = function () {
-                if (xobj.readyState == 4 && xobj.status == "200") {
-                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                    callback(xobj.responseText);
-                }
-            };
-            xobj.send(null);
-        }
-
-        function init() {
-            loadJSON(function (response) {
-                // Parse JSON string into object
-                var horror = JSON.parse(response);
-                var i;
-                var out = "<table>";
-
-                for (i = 0; i < horror.length; i++) {
-                    out += "<tr><td>" +
-                    horror[i].autor +
-                    "</td><td>" +
-                    horror[i].titel +
-                    "</td><td>" +
-                    horror[i].kapitel +
-                    "</td></tr>" +
-                    horror[i].buchart +
-                    "</td></tr>";
-                }
-                out += "</table>";
-                document.getElementById("id01").innerHTML = out;
-            })
-
-        }
-        /* old try to implement json files
-
-
-         var xmlhttp = new XMLHttpRequest();
-         var url = "http://www.w3schools.com/website/customers_mysql.php";
-
-         xmlhttp.onreadystatechange=function() {
-         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-         myFunction(xmlhttp.responseText);
-         }
-         };
-         xmlhttp.open("GET", url, true);
-         xmlhttp.send();
-
-
-
-         function myFunction(response) {
-         var arr = JSON.parse(response);
-         var i;
-         var out = "<table>";
-
-         for(i = 0; i < arr.length; i++) {
-         out += "<tr><td>" +
-         arr[i].Name +
-         "</td><td>" +
-         arr[i].City +
-         "</td><td>" +
-         arr[i].Country +
-         "</td></tr>";
-         }
-         out += "</table>";
-         document.getElementById("id01").innerHTML = out;
-         }
-.
-         */
-
-    </script>
 </head>
-<body>
+<body onbeforeprint="seiteErstellen()">
 <h1>Meine Bücher</h1>
 
-
 <div class="switch_options">
-    <span class="switch_enable"> Horror </span>
-    <span class="switch_disable"> Roman </span>
-    <input type="hidden" class="switch_val" value="0"/>
+    <input type="button" value="Horror" class="BookButton" onclick="changeToHorror()">
+    <input type="button" value="Roman" class="BookButton" onclick="changeToRoman()">
 
 </div>
 <div id="id01"></div>
-<<<<<<< HEAD
 <p></p>
 <p></p>
 <div id="id02"></div>
 <script>
-    /* hier einfach dann ... if getElementByClassName(switch_enable) == true
-     *                          dann führe horrorTable() aus
-      *                      else if getElementByClassName(switch_disable) == true
-      *                         dann führe romanTable() aus
-      *                      else
-      *                          scheiß drauf und mach nichts!
-      *                          */
-    romanTable();  //nur zu ansichtszwecken
-    horrorTable(); // nur zu ansichtszwecken
+    horrorTable();
+
+
+    function seiteErstellen() {
+        romanTable();
+        horrorTable();
+        changeToHorror();
+    }
+
+    function changeToRoman() {
+        romanTable();
+        document.getElementById('id02').style.display = "none"; // hide horror div tag
+        document.getElementById('id01').style.display = "block"; // show roman div tag
+    }
+
+    function changeToHorror() {
+        horrorTable();
+        document.getElementById('id01').style.display = "none"; // hide roman div tag
+        document.getElementById('id02').style.display = "block"; // show horror div tag
+    }
 
     function romanTable(){
         var roman =  [{"autor": "Paulo Coelho", "titel": "Der Alchimist", "kapitel": 35, "buchart": "Taschenbuch",
-                    "ISBN": 9783257237276, "erscheinungsjahr": 1996, "auflage": 3},
-                {"autor": "Friedrich Dürrenmatt", "titel": "Die Physiker", "kapitel": 2, "buchart": "Taschenbuch",
-                    "ISBN": 9783257230475, "erscheinungsjahr": 1980, "auflage": 7},
-                {"autor": "Hermann Hesse", "titel": "Der Steppenwolf", "kapitel": 11, "buchart": "Taschenbuch",
-                    "ISBN": 9783518366752, "erscheinungsjahr": 1974, "auflage": 55},
-                {"autor": "Julia Engelmann", "titel": "Eines Tages, Baby", "kapitel": 14, "buchart": "Taschenbuch",
-                    "ISBN": 9783442482320, "erscheinungsjahr": 2014, "auflage": 5},
-                {"autor": "Max Frisch", "titel": "Homo faber", "kapitel": 2, "buchart": "Taschenbuch",
-                    "ISBN": 9783518368541, "erscheinungsjahr": 1977, "auflage": 83},
-                {"autor": "Hermann Hesse", "titel": "Wer lieben kann, ist glücklich", "kapitel": 22, "buchart": "Hardcover",
-                    "ISBN": 9783518033863, "erscheinungsjahr": 1986, "auflage": 16},
-                {"autor": "Hermann Hesse", "titel": "Eigensinn macht Spaß", "kapitel": 11, "buchart": "Hardcover",
-                    "ISBN": 9783518035856, "erscheinungsjahr": 1986, "auflage": 14},
-                {"autor": "Hermann Hesse", "titel": "Jedem Anfang wohnt ein Zauber inne", "kapitel": 11, "buchart": "Hardcover",
-                    "ISBN": 9783518035849, "erscheinungsjahr": 1986, "auflage": 20},
-                {"autor": "Noah Gordon", "titel": "Der Medicus", "kapitel": 7, "buchart": "Taschenbuch",
-                    "ISBN": 9783453503946, "erscheinungsjahr": 1996, "auflage": 6},
-                {"autor": "Patrick Rothfuss", "titel": "The name of the wind", "kapitel": 33, "buchart": "Taschenbuch",
-                    "ISBN": 9780575081406, "erscheinungsjahr": 2007, "auflage": 18},
-                {"autor": "Cornelia Funke", "titel": "Tintenblut", "kapitel": 30, "buchart": "Hardcover",
-                    "ISBN": 9783791504674, "erscheinungsjahr": 2005, "auflage": 1}
+            "ISBN": 9783257237276, "erscheinungsjahr": 1996, "auflage": 3
+        },
+            {
+                "autor": "Friedrich Dürrenmatt", "titel": "Die Physiker", "kapitel": 2, "buchart": "Taschenbuch",
+                "ISBN": 9783257230475, "erscheinungsjahr": 1980, "auflage": 7
+            },
+            {
+                "autor": "Hermann Hesse", "titel": "Der Steppenwolf", "kapitel": 11, "buchart": "Taschenbuch",
+                "ISBN": 9783518366752, "erscheinungsjahr": 1974, "auflage": 55
+            },
+            {
+                "autor": "Julia Engelmann", "titel": "Eines Tages, Baby", "kapitel": 14, "buchart": "Taschenbuch",
+                "ISBN": 9783442482320, "erscheinungsjahr": 2014, "auflage": 5
+            },
+            {
+                "autor": "Max Frisch", "titel": "Homo faber", "kapitel": 2, "buchart": "Taschenbuch",
+                "ISBN": 9783518368541, "erscheinungsjahr": 1977, "auflage": 83
+            },
+            {
+                "autor": "Hermann Hesse",
+                "titel": "Wer lieben kann, ist glücklich",
+                "kapitel": 22,
+                "buchart": "Hardcover",
+                "ISBN": 9783518033863,
+                "erscheinungsjahr": 1986,
+                "auflage": 16
+            },
+            {
+                "autor": "Hermann Hesse", "titel": "Eigensinn macht Spaß", "kapitel": 11, "buchart": "Hardcover",
+                "ISBN": 9783518035856, "erscheinungsjahr": 1986, "auflage": 14
+            },
+            {
+                "autor": "Hermann Hesse",
+                "titel": "Jedem Anfang wohnt ein Zauber inne",
+                "kapitel": 11,
+                "buchart": "Hardcover",
+                "ISBN": 9783518035849,
+                "erscheinungsjahr": 1986,
+                "auflage": 20
+            },
+            {
+                "autor": "Noah Gordon", "titel": "Der Medicus", "kapitel": 7, "buchart": "Taschenbuch",
+                "ISBN": 9783453503946, "erscheinungsjahr": 1996, "auflage": 6
+            },
+            {
+                "autor": "Patrick Rothfuss", "titel": "The name of the wind", "kapitel": 33, "buchart": "Taschenbuch",
+                "ISBN": 9780575081406, "erscheinungsjahr": 2007, "auflage": 18
+            },
+            {
+                "autor": "Cornelia Funke", "titel": "Tintenblut", "kapitel": 30, "buchart": "Hardcover",
+                "ISBN": 9783791504674, "erscheinungsjahr": 2005, "auflage": 1
+            }
         ];
-    tabelleErstellen(roman, "id01");
+        tabelleErstellen(roman, "id01");
 
     }
 
@@ -156,35 +117,33 @@
         ];
         tabelleErstellen(horror, "id02");
     }
-        function tabelleErstellen(datei, id) {
-            var arr = datei;
-            var i;
-            var out = "<table>";
+    function tabelleErstellen(datei, id) {
+        var arr = datei;
+        var i;
+        var out = "<table>";
 
-            for (i = 0; i < arr.length; i++) {
-                out += "<tr><td>" +
-                arr[i].autor +
-                "</td><td>" +
-                arr[i].titel +
-                "</td><td>" +
-                arr[i].kapitel +
-                "</td><td>" +
-                arr[i].buchart +
-                "</td><td>" +
-                arr[i].ISBN +
-                "</td><td>" +
-                arr[i].erscheinungsjahr +
-                "</td><td>" +
-                arr[i].auflage +
-                "</td></tr>";
-            }
-            out += "</table>";
-            document.getElementById(id).innerHTML = out;
+        for (i = 0; i < arr.length; i++) {
+            out += "<tr><td>" +
+            arr[i].autor +
+            "</td><td>" +
+            arr[i].titel +
+            "</td><td>" +
+            arr[i].kapitel +
+            "</td><td>" +
+            arr[i].buchart +
+            "</td><td>" +
+            arr[i].ISBN +
+            "</td><td>" +
+            arr[i].erscheinungsjahr +
+            "</td><td>" +
+            arr[i].auflage +
+            "</td></tr>";
         }
+        out += "</table>";
+        document.getElementById(id).innerHTML = out;
+    }
 
 </script>
-=======
 
->>>>>>> origin/master
 </body>
 </html>

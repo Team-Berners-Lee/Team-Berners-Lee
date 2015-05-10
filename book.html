@@ -16,7 +16,6 @@
 <div id="id01"></div>
 <p></p>
 <p></p>
-<div id="id02"></div>
 <script>
     horrorTable();
 
@@ -29,13 +28,12 @@
 
     function changeToRoman() {
         romanTable();
-        document.getElementById('id02').style.display = "none"; // hide horror div tag
         document.getElementById('id01').style.display = "block"; // show roman div tag
+
     }
 
     function changeToHorror() {
         horrorTable();
-        document.getElementById('id01').style.display = "none"; // hide roman div tag
         document.getElementById('id02').style.display = "block"; // show horror div tag
     }
 
@@ -115,13 +113,14 @@
             {"autor": "Peter F. Hamilton", "titel": "Hannibal", "kapitel": 21, "buchart": "Hardcover", "ISBN": 9783404232345,
                 "erscheinungsjahr": 2001, "auflage": 11}
         ];
-        tabelleErstellen(horror, "id02");
+        tabelleErstellen(horror, "id01");
     }
     function tabelleErstellen(datei, id) {
         var arr = datei;
         var i;
-        var out = "<table>";
-        out += "<tr><td>" +
+        var out = "<table class='generatedTable'>";
+
+        out += "<th class='generatedThead'><tr><td>" +
         "Autor" +
         "</td><td>" +
         "Titel" +
@@ -135,7 +134,7 @@
         "Erscheinungsjahr" +
         "</td><td>" +
         "Auflage" +
-        "</td></tr>";
+        "</td></tr></th>";
 
         for (i = 0; i < arr.length; i++) {
             out += "<tr><td>" +

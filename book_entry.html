@@ -26,7 +26,7 @@
                 document.getElementById('Buchtitel').style.borderColor = "transparent";
             }
             // Check if Buchauthor only contain letters
-            if( nurBuchstaben(document.Form.Buchautor.value ) == false ){
+            if( nurBuchstaben(document.Form.Buchautor.value ) == false || document.Form.Buchautor.value == ""){
                 document.getElementById('Buchautor').style.borderColor = "red";
                 if(!focusSet) document.Form.Buchautor.focus();
                 validEntries = false;
@@ -97,7 +97,6 @@
         // Check if given value contains only letters, else returns false
         function nurBuchstaben(value){
             if(value.length < 0 ){
-                alert("nurbuchstaben < 0");
                 return false;
             }else if(value.length > 0){
                     var val = value;

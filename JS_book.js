@@ -1,25 +1,50 @@
-horrorTable();
-
+/*
+ * Weder die PHP noch die JSON funktionieren beim Einlesen. Nahezu egal was ich mache. Es muss
+ * am Server liegen, dass mir was fehlt (wobei sie sagten XAMPP hat alles benötigte drin) oder es liegt an meinem
+ * PHP-Befehl.
+ *
+ *
 var roman = new XMLHttpRequest();
-roman.open("GET", '../roman_books.json',false);
+var url = "http://localhost:62030/getBooks.php";
+roman.open("GET", 'http://localhost:62030/getBooks.php',false);
 roman.send(null);
 
 var horror = new XMLHttpRequest();
-horror.open("GET", '../horror_books.json',false);
+horror.open("GET", 'horror_books.json',false);
 horror.send(null);
 
-function horrorTable() {
-    var horrorData = JSON.parse(horror.responseText);
-    tabelleErstellen(horrorData, "id01");
+function did(xmlhttp) {
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            tab(xmlhttp.responseText);
+        }
+    }
 }
 
-function romanTable() {
-    var romanData = JSON.parse(roman.responseText);
-    tabelleErstellen(romanData, "id01");
-}
+function test1(wert){
+    if(wert == 1){
+        tab(horror, "id01");
+    }else if(wert == 2){
+        tab(roman, "id01");
+    }
 
-function tabelleErstellen(datei, id) {
-    var arr = datei;
+}*/
+
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://localhost:62030/getBooks.php";
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                tab(xmlhttp.responseText, "id01");
+            }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+
+
+function tab(datei, id) {
+    var arr = JSON.parse(datei);
     var i;
     var out = "<table class='generatedTable'>";
     out += "<tr><th>" +

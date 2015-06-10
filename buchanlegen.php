@@ -1,5 +1,5 @@
 <?php
-
+/* for textfile
 // File öffnen und in File schreiben
 if($_GET['Buchtitel'] <> "") {
     $my_file = 'books.txt';
@@ -29,5 +29,19 @@ if($_GET['Buchtitel'] <> "") {
     fclose($handle);
     exit;
 }
+*/
+
+$servername = "localhost:1337";
+$username = "books";
+$password = "mybooks";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 
 ?>

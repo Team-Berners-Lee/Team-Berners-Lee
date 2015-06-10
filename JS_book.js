@@ -5,7 +5,7 @@
  *
  *
 var roman = new XMLHttpRequest();
-var url = "http://localhost:62030/getBooks.php";
+var url = "http://localhost:62030/getBooks.php?type=horror";
 roman.open("GET", 'http://localhost:62030/getBooks.php',false);
 roman.send(null);
 
@@ -31,13 +31,13 @@ function test1(wert){
 }*/
 
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://localhost:62030/getBooks.php";
+        var url = "http://localhost:1337/getBooks.php";
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 tab(xmlhttp.responseText, "id01");
             }
-        }
+        };
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
 

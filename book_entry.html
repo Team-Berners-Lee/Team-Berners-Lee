@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Bucheingabe</title>
     <link rel="stylesheet" type="text/css" href="ibdb.css">
-    <script src="../JS_book_entry.js"></script>
+    <script src="./JS_book_entry.js"></script>
 
 </head>
 <body>
 <h1>Buch anlegen</h1>
 
-<form name="Form" id="Main" action="http://localhost/xampp/htdocs/buchanlegen.php" method="GET" onsubmit="return validateForm()">
+<form name="Form" id="Main" action="http://localhost:1337/buchanlegen.php" method="GET" onsubmit="return validateForm()">
     <div id="booktoken">
         <p>
             <label class="book_entry_label" for="Buchtitel">Buchtitel</label>
@@ -44,7 +44,7 @@
 
         <p>
             <label class="book_entry_label" for="ArtDesBuches">Art des Buches</label>
-            <select name="ArtDesBuches" size="1" id="ArtDesBuches">
+            <select name="BuchArt" size="6" id="ArtDesBuches">
                 <option value="ebook">eBook</option>
                 <option value="newspaper">Newspaper</option>
                 <option value="taschenbuch">Taschenbuch</option>

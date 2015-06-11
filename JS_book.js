@@ -29,22 +29,43 @@ function test1(wert){
     }
 
 }*/
-
-        var xmlhttp = new XMLHttpRequest();
-        var url = "http://localhost:1337/getBooks.php";
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                tab(xmlhttp.responseText, "id01");
-            }
-        };
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
+var request = new XMLHttpRequest();
+var url = "horror_books.json";
+m();
 
 
 
-function tab(datei, id) {
-    var arr = JSON.parse(datei);
+function awT(wert){
+    if (wert == 1){
+
+        url ="horror_books.json";
+    } else if (wert == 2){
+
+        url ="roman_books.json";
+    }
+    m();
+}
+
+function m() {
+    request.open("GET",url, true);
+    request.onreadystatechange =callbackHandler;
+    request.send();
+}
+function callbackHandler(){
+    if ((request.readyState == 4) && ( request.status == 200)&& (request.responseText != null)){
+        tab(request.responseText);
+    }
+}
+
+function tab(datei) {
+    var  toProof = datei.toString();
+
+    if((toProof.indexOf('horrordata'))>0){
+        var arr = JSON.parse(datei).horrordata;
+    }else if((toProof.indexOf('romandata'))>0){
+        var arr = JSON.parse(datei).romandata;
+    }
+
     var i;
     var out = "<table class='generatedTable'>";
     out += "<tr><th>" +
@@ -80,5 +101,5 @@ function tab(datei, id) {
         "</td></tr>";
     }
     out += "</table>";
-    document.getElementById(id).innerHTML = out;
+    document.getElementById("id01").innerHTML = out;
 }

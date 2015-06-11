@@ -14,7 +14,7 @@ if($_GET['Buchtitel'] <> "") {
     fwrite($handle, $trenner);
     fwrite($handle, $_GET['Kapitel']);
     fwrite($handle, $trenner);
-    fwrite($handle, $_GET['BuchArt']);
+    fwrite($handle, $_GET['ArtDesBuches']);
     fwrite($handle, $trenner);
     fwrite($handle, $_GET['ISBN']);
     fwrite($handle, $newLine);

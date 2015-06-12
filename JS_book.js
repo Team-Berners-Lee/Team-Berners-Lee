@@ -59,11 +59,11 @@ function callbackHandler(){
 
 function tab(datei) {
     var  toProof = datei.toString();
-
+    var arr;
     if((toProof.indexOf('horrordata'))>0){
-        var arr = JSON.parse(datei).horrordata;
+        arr = JSON.parse(datei).horrordata;
     }else if((toProof.indexOf('romandata'))>0){
-        var arr = JSON.parse(datei).romandata;
+        arr = JSON.parse(datei).romandata;
     }
 
     var i;

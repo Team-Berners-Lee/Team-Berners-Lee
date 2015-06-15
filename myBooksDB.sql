@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Jun 2015 um 12:03
+-- Erstellungszeit: 15. Jun 2015 um 12:17
 -- Server-Version: 5.6.24
 -- PHP-Version: 5.6.8
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `tl_books` (
   `book_forename` varchar(45) NOT NULL,
   `book_surname` varchar(45) NOT NULL,
   `book_genre` varchar(45) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `tl_books`
@@ -46,7 +46,10 @@ CREATE TABLE IF NOT EXISTS `tl_books` (
 
 INSERT INTO `tl_books` (`book_id`, `book_title`, `book_author`, `book_chapters`, `book_type`, `book_isbn`, `book_yearOfPublish`, `book_run`, `book_forename`, `book_surname`, `book_genre`) VALUES
 (15, 'ersterTitel', 'ersterAutor', '1', 'hardcover', '', '1200', '1', 'ersterName', 'ersterNachname', 'Horror'),
-(17, 'Autorentest', 'autor tester', '1', 'hardcover', '1111111111111', '1200', '1', 'max', 'mustermann', 'Psycho');
+(17, 'Autorentest', 'autor tester', '1', 'hardcover', '1111111111111', '1200', '1', 'max', 'mustermann', 'Psycho'),
+(23, 'dieserTitel', '', '1', 'ebook', '1111111111111', '2000', '1', '', '', 'Krimi'),
+(24, 'testtitel', 'buchautor', '', 'hardcover', '1234567891231', '1200', '12', 'default', 'default', 'Horror'),
+(26, 'testtitel', 'buchautor', '', 'hardcover', '1234567891231', '1200', '12', '', '', 'Horror');
 
 --
 -- Indizes der exportierten Tabellen
@@ -56,7 +59,7 @@ INSERT INTO `tl_books` (`book_id`, `book_title`, `book_author`, `book_chapters`,
 -- Indizes für die Tabelle `tl_books`
 --
 ALTER TABLE `tl_books`
-  ADD PRIMARY KEY (`book_id`,`book_forename`,`book_surname`);
+  ADD PRIMARY KEY (`book_id`,`book_forename`,`book_surname`), ADD UNIQUE KEY `book_name` (`book_title`,`book_forename`,`book_surname`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -66,7 +69,7 @@ ALTER TABLE `tl_books`
 -- AUTO_INCREMENT für Tabelle `tl_books`
 --
 ALTER TABLE `tl_books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -18,7 +18,7 @@ $book_surname = $_GET['DeinNachname'];
 $book_genre = $_GET['Genre'];
 
 // Patterns for Validation
-$name_pattern = '[A-Za-z]';
+$name_pattern = '([A-Za-z])';
 $isbn_pattern = '([0-9]{13})';
 $year_pattern = '([0-9]{4})';
 $run_pattern = '([1-9]+)';

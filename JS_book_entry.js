@@ -2,6 +2,9 @@
 var currentDate = new Date();
 var currentYear = currentDate.getFullYear();
 
+// Regular Expressions
+var regex_buchstaben = /^[a-zA-Z ]*$/;
+var regex_zahlen = /^[0-9]*$/;
 
 function entryWarn(){
     alert( "Einige Eingaben sind fehlerhaft. Bitte überprüfen Sie ihre Eingaben");
@@ -23,7 +26,7 @@ function validateForm(){
         document.getElementById('Buchtitel').style.borderColor = "transparent";
     }
     // Check if Buchauthor only contain letters
-    if( nurBuchstaben(document.Form.Buchautor.value ) == false || document.Form.Buchautor.value == ""){
+    if (regex_buchstaben.test(document.Form.Buchautor.value) == false || document.Form.Buchautor.value == "") {
         document.getElementById('Buchautor').style.borderColor = "red";
         if (focusSet == false) {
             document.Form.Buchautor.focus();
@@ -37,7 +40,7 @@ function validateForm(){
     // Check if ISBN contains exactly 13 numbers
     if (document.Form.ISBN.value.length > 13 ||
         document.Form.ISBN.value.length < 13 ||
-        nurZahlen(document.Form.ISBN.value) == false) {
+        regex_zahlen.test(document.Form.ISBN.value) == false) {
         document.getElementById('ISBN').style.borderColor = "red";
         if (focusSet == false) {
             document.Form.ISBN.focus();
@@ -60,7 +63,7 @@ function validateForm(){
             focusSet = true;
         }
         validEntries = false;
-    } else if (nurZahlen(document.Form.Erscheinungsjahr.value) == false) {
+    } else if (regex_zahlen.test(document.Form.Erscheinungsjahr.value) == false) {
         document.getElementById('Erscheinungsjahr').style.borderColor = "red";
         if (focusSet == false) {
             document.Form.Erscheinungsjahr.focus();
@@ -72,7 +75,7 @@ function validateForm(){
     }
 
     // Check if Auflage contains only numbers
-    if (nurZahlen(document.Form.Auflage.value) == false ||
+    if (regex_zahlen.test(document.Form.Auflage.value) == false ||
         document.Form.Auflage.value == "") {
         document.getElementById('Auflage').style.borderColor = "red";
         if (focusSet == false) {
@@ -85,7 +88,7 @@ function validateForm(){
     }
 
     // Check if DeinVorname only contain letters
-    if (nurBuchstaben(document.Form.DeinVorname.value) == false) {
+    if (regex_buchstaben.test(document.Form.DeinVorname.value) == false) {
         document.getElementById('DeinVorname').style.borderColor = "red";
         if (focusSet == false) {
             document.Form.DeinVorname.focus();
@@ -97,7 +100,7 @@ function validateForm(){
     }
 
     // Check if DeinNachname only contain letters
-    if( nurBuchstaben(document.Form.DeinNachname.value )  == false ){
+    if (regex_buchstaben.test(document.Form.DeinNachname.value) == false) {
         document.getElementById('DeinNachname').style.borderColor = "red";
         if (focusSet == false) {
             document.Form.DeinNachname.focus();
@@ -117,24 +120,6 @@ function validateForm(){
     }
 }
 
-
-// Check if given value contains only letters, else returns false
-function nurBuchstaben(value){
-    if(value.length < 0 ){
-        return false;
-    }else if(value.length > 0){
-        var val = value;
-        for(i=0; i < val.length; i++){
-            if(val.charAt(i) < "A"  ||
-                val.charAt(i) > "Z" && val.charAt(i) < "a" ||
-                val.charAt(i) > "z" || val.charAt(i) == " ") {
-                return false;
-            }
-        }
-    }else{
-        return true;
-    }
-}
 
 function nurZahlen(value){
     if (value.length < 0) {

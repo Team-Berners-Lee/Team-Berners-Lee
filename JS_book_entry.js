@@ -117,6 +117,7 @@ function validateForm(){
     }
 }
 
+
 // Check if given value contains only letters, else returns false
 function nurBuchstaben(value){
     if(value.length < 0 ){

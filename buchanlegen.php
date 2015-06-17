@@ -1,9 +1,9 @@
 <?php
 // Login in Data
 $servername = "localhost";
-$username = "myBooks";
-$password = "myBooks";
-$dbName = "myBooks";
+$username = "mybooks";
+$password = "mybooks";
+$dbName = "mybooks";
 
 // Values ( zur Übersichtlichtkeit )
 $book_title = $_GET['Buchtitel'];

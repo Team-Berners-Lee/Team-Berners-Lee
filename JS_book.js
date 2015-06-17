@@ -1,47 +1,15 @@
-/*
- * Weder die PHP noch die JSON funktionieren beim Einlesen. Nahezu egal was ich mache. Es muss
- * am Server liegen, dass mir was fehlt (wobei sie sagten XAMPP hat alles benötigte drin) oder es liegt an meinem
- * PHP-Befehl.
- *
- *
-var roman = new XMLHttpRequest();
-var url = "http://localhost:62030/getBooks.php?type=horror";
-roman.open("GET", 'http://localhost:62030/getBooks.php',false);
-roman.send(null);
-
-var horror = new XMLHttpRequest();
-horror.open("GET", 'horror_books.json',false);
-horror.send(null);
-
-function did(xmlhttp) {
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            tab(xmlhttp.responseText);
-        }
-    }
-}
-
-function test1(wert){
-    if(wert == 1){
-        tab(horror, "id01");
-    }else if(wert == 2){
-        tab(roman, "id01");
-    }
-
-}*/
 var request = new XMLHttpRequest();
-var url = "horror_books.json";
+//var url = "horror_books.json";
+var url = "getBooks.php?type=horror";
 m();
-
-
 
 function awT(wert){
     if (wert == 1){
 
-        url ="horror_books.json";
+        url ="getBooks.php?type=horror";
     } else if (wert == 2){
 
-        url ="roman_books.json";
+        url ="getBooks.php?type=other";
     }
     m();
 }
@@ -58,13 +26,15 @@ function callbackHandler(){
 }
 
 function tab(datei) {
-    var  toProof = datei.toString();
+ //   var toProof = datei.toString();
     var arr;
-    if((toProof.indexOf('horrordata'))>0){
-        arr = JSON.parse(datei).horrordata;
-    }else if((toProof.indexOf('romandata'))>0){
-        arr = JSON.parse(datei).romandata;
-    }
+    // if((toProof.indexOf())>0){
+    arr = JSON.parse(datei);
+   // arr = datei;
+    // }
+   // }else if((toProof.indexOf('romandata'))>0){
+   //     arr = JSON.parse(datei).romandata;
+   // }
 
     var i;
     var out = "<table class='generatedTable'>";

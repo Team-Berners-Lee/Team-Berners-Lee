@@ -2,39 +2,22 @@
 header('Content-type: application/json');
 
 //json Files
-
-$url=parse_url('getBooks.php?type=horror_books');
-$url=parse_url('getBooks.php?type=roman_books');
+$url=parse_url('getBooks.php?type=horror');
+$url=parse_url('getBooks.php?type=other');
 $output = "";
-if($url['query']['type'] == "horror_books"){
+$new_url = $url['query'];
+if($new_url['type'] == "horror"){
     $output = "horror";
-    //   $output= file_get_contents("horror_books.json", "r");
-}else if($url['query']['type'] == "roman_books"){
+}else if($new_url['type'] == "other"){
     $output = "other";
-//    $output= file_get_contents("roman_books.json", "r");
 }
-
-//echo $output;
-
-/*
-function parse_url_detail($url){
-    $parts = parse_url($url);
-    if(isset($parts['query'])) {
-        parse_str(urldecode($parts['query']), $parts['query']);
-    }
-    return $parts;
-}
-*/
-
-//header('Content-type: application/json');
-//echo file_get_contents("http://localhost:62030/horror"-$_GET['horrorData'].".json");
 
 //MySQL
 // Login in Data
 $servername = "localhost";
-$username = "myBooks";
-$password = "myBooks";
-$dbName = "myBooks";
+$username = "mybooks";
+$password = "mybooks";
+$dbName = "mybooks";
 
 $sql_horror = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre='horror'";
 $sql_other = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre!='horror'";
@@ -53,14 +36,28 @@ if ($conn->connect_error) {
 
     $result = $conn->query($sql);
 
-    $rows = array();
-    while ($r = mysqli_fetch_array($result)) {
-        $rows[] = $r;
+
+    $return_arr = array();
+    while ($array = mysqli_fetch_row($result)) {
+        $return_arr[] = $array;
     }
-    echo json_encode($rows);
+
+/*
+    $return_arr = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $row_array['book_author'] = $row['book_author'];
+            $row_array['book_title'] = $row['book_title'];
+            $row_array['book_chapters'] = $row['book_chapters'];
+            $row_array['book_type'] = $row['book_type'];
+            $row_array['book_isbn'] = $row['book_isbn'];
+            $row_array['book_yearOfPublish'] = $row['book_yearOfPublish'];
+            $row_array['book_run'] = $row['book_run'];
+            array_push($return_arr,$row_array);
+        }
+*/
+    echo json_encode($return_arr, true);
+
     $conn->close();
 }
-
-
 
 ?>

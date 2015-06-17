@@ -30,7 +30,6 @@ function tab(datei) {
     var arr;
     // if((toProof.indexOf())>0){
     arr = JSON.parse(datei);
-   // arr = datei;
     // }
    // }else if((toProof.indexOf('romandata'))>0){
    //     arr = JSON.parse(datei).romandata;

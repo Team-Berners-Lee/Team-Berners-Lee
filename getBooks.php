@@ -42,18 +42,18 @@ if ($conn->connect_error) {
 }
     if ($output == "horror") {
         $sql = $sql_horror;
-    } else if ($output == "other") {
+    } else {
         $sql = $sql_other;
     }
 
     $result = $conn->query($sql);
-
 
     $return_arr = array();
     while ($array = mysqli_fetch_row($result)) {
         $return_arr[] = $array;
     }
 
+/*
     $return_arr = array();
         while ($row = mysqli_fetch_assoc($result)) {
             $row_array['book_author'] = $row['book_author'];
@@ -65,6 +65,7 @@ if ($conn->connect_error) {
             $row_array['book_run'] = $row['book_run'];
             array_push($return_arr,$row_array);
         }
+*/
 
 echo json_encode($return_arr, true);
 

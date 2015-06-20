@@ -1,15 +1,15 @@
 var request = new XMLHttpRequest();
 
-var url = "getBooks.php?type=horror";
+var url = "getBooks.php?name=genre";
 m();
 
 function awT(wert){
     if (wert == 1){
 
-        url ="getBooks.php?type=horror";
+        url = "getBooks.php?genre=horror";
     } else if (wert == 2){
 
-        url ="getBooks.php?type=other";
+        url = "getBooks.php?genre=other";
     }
     m();
 }
@@ -19,6 +19,7 @@ function m() {
     request.onreadystatechange =callbackHandler;
     request.send();
 }
+
 function callbackHandler(){
     if ((request.readyState == 4) && ( request.status == 200)&& (request.responseText != null)){
         var jsonData = JSON.parse(request.responseText);

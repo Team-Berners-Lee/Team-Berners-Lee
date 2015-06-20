@@ -3,7 +3,6 @@ header('Content-type: application/json');
 
 /**
  * Simple helper to debug to the console
- *
  * @param  Array , String $data
  * @return String
  */
@@ -22,10 +21,12 @@ $sql = "";
 $sql_horror = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre='horror'";
 $sql_other = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre!='horror'";
 
-$url = $_REQUEST['type'];
-if ($url == "horror") {
+$url = $_REQUEST['genre'];
+
+if ($url == 'horror') {
     $sql = $sql_horror;
-} else if ($url == "other") {
+}
+if ($url == 'other') {
     $sql = $sql_other;
 }
 /*

@@ -7,8 +7,9 @@ $output = "";
 $url = parse_url('getBooks.php?type=horror', PHP_URL_QUERY);
 if ($url = "horror") {
     $output = "horror";
+} else {
+    $url = parse_url('getBooks.php?type=other', PHP_URL_QUERY);
 }
-$url = parse_url('getBooks.php?type=other', PHP_URL_QUERY);
 if ($url = "other") {
     $output = "other";
 }
@@ -47,13 +48,13 @@ if ($conn->connect_error) {
     }
 
     $result = $conn->query($sql);
-
+/*
     $return_arr = array();
     while ($array = mysqli_fetch_row($result)) {
         $return_arr[] = $array;
     }
 
-/*
+*/
     $return_arr = array();
         while ($row = mysqli_fetch_assoc($result)) {
             $row_array['book_author'] = $row['book_author'];
@@ -65,7 +66,7 @@ if ($conn->connect_error) {
             $row_array['book_run'] = $row['book_run'];
             array_push($return_arr,$row_array);
         }
-*/
+
 
 echo json_encode($return_arr, true);
 

@@ -21,15 +21,18 @@ function m() {
 }
 function callbackHandler(){
     if ((request.readyState == 4) && ( request.status == 200)&& (request.responseText != null)){
-        tab(request.responseText);
+        var jsonData = JSON.parse(request.responseText);
+        //     alert(jsonData);
+        tab(jsonData);
     }
 }
 
 function tab(datei) {
  //   var toProof = datei.toString();
-    var arr;
+    var arr = datei;
+    //   alert(arr);
     // if((toProof.indexOf())>0){
-    arr = JSON.parse(datei);
+    //arr = JSON.parse(datei);
     // }
    // }else if((toProof.indexOf('romandata'))>0){
    //     arr = JSON.parse(datei).romandata;
@@ -52,21 +55,21 @@ function tab(datei) {
     "</th><th>" +
     "Auflage" +
     "</th></tr>";
-    for (i = 0; i < arr.length; i++) {
+    for (i = 0; i < datei.length; i++) {
         out += "<tr><td>" +
-        arr[i].autor +
+        datei[i].book_author +
         "</td><td>" +
-        arr[i].titel +
+        arr[i].book_title +
         "</td><td>" +
-        arr[i].kapitel +
+        arr[i].book_chapters +
         "</td><td>" +
-        arr[i].buchart +
+        arr[i].book_type +
         "</td><td>" +
-        arr[i].ISBN +
+        arr[i].book_isbn +
         "</td><td>" +
-        arr[i].erscheinungsjahr +
+        arr[i].book_yearOfPublish +
         "</td><td>" +
-        arr[i].auflage +
+        arr[i].book_run +
         "</td></tr>";
     }
     out += "</table>";

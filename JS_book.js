@@ -1,5 +1,5 @@
 var request = new XMLHttpRequest();
-//var url = "horror_books.json";
+
 var url = "getBooks.php?type=horror";
 m();
 
@@ -28,15 +28,8 @@ function callbackHandler(){
 }
 
 function tab(datei) {
- //   var toProof = datei.toString();
     var arr = datei;
     //   alert(arr);
-    // if((toProof.indexOf())>0){
-    //arr = JSON.parse(datei);
-    // }
-   // }else if((toProof.indexOf('romandata'))>0){
-   //     arr = JSON.parse(datei).romandata;
-   // }
 
     var i;
     var out = "<table class='generatedTable'>";

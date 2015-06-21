@@ -17,28 +17,24 @@ function debug_to_console($data)
     echo $output;
 }
 
+$genre = '';
+
 $sql = "";
 $sql_horror = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre='horror'";
 $sql_other = "SELECT book_author, book_title, book_chapters, book_type, book_isbn, book_yearOfPublish, book_run FROM tl_books WHERE book_genre!='horror'";
 
-$url = $_REQUEST['genre'];
+if (!isset($_REQUEST['genre'])) {
+    $sql = $sql_horror;
+} else {
+    $url = $_REQUEST['genre'];
+    if ($url == "other") {
+        $sql = $sql_other;
+    } else if ($url == "horror") {
+        $sql = $sql_horror;
+    }
+}
 
-if ($url == 'horror') {
-    $sql = $sql_horror;
-}
-if ($url == 'other') {
-    $sql = $sql_other;
-}
-/*
-$url = parse_url('getBooks.php?type=horror', PHP_URL_QUERY);
-if ($url == "horror") {
-    $sql = $sql_horror;
-}
-$url = parse_url('getBooks.php?type=other', PHP_URL_QUERY);
-if ($url == "other") {
-    $sql = $sql_other;
-}
-*/
+
 //MySQL
 // Login in Data
 $servername = "localhost";
@@ -74,4 +70,3 @@ if ($conn->connect_error) {
 
 
 
-?>

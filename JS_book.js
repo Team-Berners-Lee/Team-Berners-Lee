@@ -23,7 +23,7 @@ function m() {
 function callbackHandler(){
     if ((request.readyState == 4) && ( request.status == 200)&& (request.responseText != null)){
         var jsonData = JSON.parse(request.responseText);
-        //     alert(jsonData);
+//  alert(jsonData);
         tab(jsonData);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 // Login in Data
 $servername = "localhost";
-$username = "mybooks";
-$password = "mybooks";
+$username = "bookuser";
+$password = "bookuser";
 $dbName = "mybooks";
 
 // Values ( zur Übersichtlichtkeit )

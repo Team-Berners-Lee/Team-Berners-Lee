@@ -37,8 +37,8 @@ if (!isset($_REQUEST['genre'])) {
 //MySQL
 // Login in Data
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "bookuser";
+$password = "bookuser";
 $dbName = "mybooks";
 
 // Create connection

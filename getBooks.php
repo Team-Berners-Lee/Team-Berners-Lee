@@ -29,11 +29,10 @@ if (!isset($_REQUEST['genre'])) {
     $url = $_REQUEST['genre'];
     if ($url == "other") {
         $sql = $sql_other;
-    } else if ($url == "horror") {
+    } else if ($url != "other") {
         $sql = $sql_horror;
     }
 }
-
 
 //MySQL
 // Login in Data
@@ -66,7 +65,7 @@ if ($conn->connect_error) {
     echo json_encode($return_arr, true);
 }
 
-    $conn->close();
+$conn->close();
 
 
 
